@@ -1,0 +1,280 @@
+html {
+	overflow-y: scroll;
+}
+
+html, body {
+	position: relative;
+	min-height: 100%;
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	background-color: #FFE0E0;
+}
+
+#wrapper {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+
+.table {
+	display: table;
+	width: 100%;
+	height: 100%;
+}
+
+.row {
+	display: table-row;
+}
+
+.cell {
+	display: table-cell;
+	padding: 0;
+}
+
+.noScroll {
+	overflow: hidden;
+}
+
+.showImage {
+	display: initial;
+}
+
+.hideImage {
+	display: none;
+}
+
+/* Main elements of page */
+
+.middle {
+	height: 100%;
+}
+
+.banner {
+	height: 70px;
+	width: 100%;
+	position: relative;
+	text-align: center;
+	vertical-align: center;
+	line-height: 70px;
+	font-family: Copperplate Gothic Light;
+	font-weight: bold;
+	color: white;
+	text-shadow: 0px 0px 11px rgba(255, 121, 146, 1);
+	background-color: #EEB2B2;
+	background: rgb(181, 119, 124);
+	background: -moz-linear-gradient(273deg, rgb(181, 119, 124) 5%, rgb(255, 209, 211) 100%);
+	background: -webkit-linear-gradient(273deg, rgb(181, 119, 124) 5%, rgb(255, 209, 211) 100%);
+	background: -o-linear-gradient(273deg, rgb(181, 119, 124) 5%, rgb(255, 209, 211) 100%);
+	background: -ms-linear-gradient(273deg, rgb(181, 119, 124) 5%, rgb(255, 209, 211) 100%);
+	background: linear-gradient(3deg, rgb(181, 119, 124) 5%, rgb(255, 209, 211) 100%);
+}
+
+.banner p {
+	display: inline-block;
+	vertical-align: middle;
+	line-height: normal;
+}
+
+.container {
+	float: left;
+	/*height: 100%;*/
+	width: 670px;
+	padding: 25px;
+	background-color: #FFEBEB;
+	color: #613F3F;
+	font-family: 'Oswald', sans-serif;
+	word-wrap:break-word;
+}
+
+.sidebar {
+	float: left;
+	height: 100%;
+	width: calc((100% - 720px) / 2);
+	overflow: auto;
+}
+
+.footer {
+	background-color: white;
+	color: #613F3F;
+	text-align: center;
+}
+
+/*Navigation Bar*/
+#navigation {
+	width: 100%;
+	overflow: hidden;
+	text-align: center;
+}
+
+.nav {
+	background: #613F3F;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.nav img {
+	width: 30px;
+	height: 30px;
+	vertical-align: middle;
+}
+
+.nav ul {
+	list-style-type: none;
+	background-color: #613F3F;
+	text-align: center;
+	padding: 0;
+	margin: 0;
+}
+
+.nav li {
+	font-family: Copperplate Gothic Light;
+	font-size: smaller;
+	line-height: 40px;
+	height: 40px;
+}
+
+.nonMobile a {
+	text-decoration: none;
+	color: #fff;
+	display: block;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	transition: .3s background-color;
+}
+
+.nonMobile a:hover {
+	background-color: #816565;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+}
+
+.nav a.active {
+	background-color: #fff;
+	color: #444;
+	cursor: default;
+}
+
+.nonMobile li {
+		width: 120px;
+		height: 50px;
+		line-height: 50px;
+		font-size: large;
+		display: inline-block;
+		list-style: none;
+	}
+
+.mobile a {
+	text-decoration: none;
+	color: #fff;
+	display: block;
+	transition: .3s background-color;
+}
+
+.mobile a:hover {
+	background-color: #816565;
+}
+
+/* Current tab of navbar is same color as container in nonMobile */
+#currentPageNonMobile {
+	color: #613F3F;
+	font-weight: bold;
+	background-color: #FFEBEB;
+	box-shadow:inset 0px 2px 0px 0px #613F3F;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+}
+
+#currentPageNonMobile a {
+	display: block;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	transition: .3s background-color;
+}
+
+#currentPageNonMobile a:hover {
+	background-color: #FFEBEB;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+}
+
+
+/* Thumbnails for Gallery*/
+
+.gallery {
+	float: left;
+	height: 100px;
+	width: 100%;
+	margin-bottom: 10px;
+	text-align: center;
+}
+
+.thumbnail {
+	float: left;
+	height: 100px;
+	width: calc(100% / 3);
+}
+
+.image {
+	height: 100px;
+	padding: 0;
+	cursor: pointer;
+}
+
+.filler{
+	height: auto;
+	width: auto;
+}
+
+/* Enlarged thumbnail image */
+
+#largeImgPanel {
+	text-align: center;
+	visibility: hidden;
+	position: fixed;
+	z-index: 100;
+	top: 0; 
+	left: 0; 
+	width: 100%; 
+	height: 100%;
+	background-color: rgba(100,100,100, 0.5);
+	overflow: auto;
+}
+
+#gallery {
+	height: 75%;
+}
+
+#galleryBG {
+	float: left;
+	height: 100%;
+	width: 670px;
+	background-color: black;
+	color: #613F3F;
+	position: relative;
+}
+
+#gallerySide {
+	float: left;
+	height: 100%;
+	width: calc((100% - 720px) / 2);
+	overflow: auto;
+}
+
+#largeImg {
+	display: block;
+	position: absolute;
+}
+
+/* Caption for enlarged image */
+
+.caption {
+	float: left;
+	height: 100%;
+	width: 670px;
+	background-color: white;
+}
