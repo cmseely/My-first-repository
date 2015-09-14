@@ -1,5 +1,5 @@
 var bannerHeight = $(".banner").height();
-var containerPadding = $(".container").css("padding-top");
+var containerPadding = parseFloat($(".container").css("padding-top"));
 var sidebarPadding = $(".sidebar").css("padding-top");
 
 // when the page is smaller than this width, it changes into
@@ -8,81 +8,97 @@ var mobileWidth = 800;
 
 // Returns true if window is less than mobile width
 function isMobileWidth() {
-	return $(window).width() < mobileWidth;
+	return $(window).width() <= mobileWidth;
+}
+
+function adjustPaddingTop() {
+	// if mobile, padding-top is 25px
+	// if non-mobile without sticky navbar, padding-top is 25px
+	// if non-mobile with sticky navbar, padding-top is 25px + navbarHeight
+	var adjustedPadding;
+	
+	if(!isMobileWidth() && $(".nav").hasClass("sticky")) {
+		console.log($(".nav").height());
+		adjustedPadding = containerPadding + parseFloat($(".nav").height());
+	} else {
+		adjustedPadding = containerPadding;
+	}
+	$(".container").css({"padding-top": adjustedPadding})
+}
+
+function pageIsMobile() {
+	return $("#navigation").hasClass("mobile");
 }
 
 // If window size is small enough, make page mobile friendly
 // If window size is large enough, make page non-mobile
 // At < mobile width change to mobile class
 function mobile() {
-
+	console.log("check if mobile");
 	// switch between mobile and nonmobile navbar
-	if(isMobileWidth() && !$("#navigation").hasClass("mobile")) {
-		// hide image link and show text link
-		$("#currentPageMobile").css({"display": "block"});
-		$("#currentPageNonMobile").css({"display": "none"});
+	if(isMobileWidth() && !pageIsMobile()) {
+		// hide home image link and show text link
+		$("#homeMobile").css({"display": "block"});
+		$("#homeNonMobile").css({"display": "none"});
 		
-		//change class to mobile
+		//change classes to mobile
 		$("#navigation").removeClass("nonMobile");
 		$("#navigation").addClass("mobile");
+		$("#currentPage").removeClass("currentPageNonMobile");
+		$("#currentPage").addClass("currentPageMobile");
 		
-	} else if(!isMobileWidth() && !$("#navigation").hasClass("nonMobile")) {
+		// unstick navbar and adjust padding on container
+		navStick();
+		adjustPaddingTop();
+		
+	} else if(!isMobileWidth() && pageIsMobile()) {
 		// show image link and hide text link
-		$("#currentPageNonMobile").css({"display": "block"});
-		$("#currentPageMobile").css({"display": "none"});
+		$("#homeNonMobile").css({"display": "block"});
+		$("#homeMobile").css({"display": "none"});
 		
-		// change class to nonmobile
+		// change classes to nonmobile
 		$("#navigation").removeClass("mobile");
 		$("#navigation").addClass("nonMobile");
-	}	
+		$("#currentPage").removeClass("currentPageMobile");
+		$("#currentPage").addClass("currentPageNonMobile");
+		navStick();
+	}
 }
 
-// checks if page needs to be changed
-$(window).resize(mobile);
+// returns true if page is scrolled to top
+function pageAtTop() {
+	return $(window).scrollTop() == 0;
+}
 
-$(document).ready( function() {
-	// At < mobile width, changes to mobile class
-	mobile();
+// returns true when navbar is stuck to very top of page
+function navbarStuck() {
+	return $(".nav").hasClass("sticky");
+}
 
-	var navSticky = false;
-	console.log(navSticky);
-	$(window).scroll(function() {
+// toggle fixed position instead of updating top
+function navStick() {
 		// if page is nonmobile, nav bar sticks to top of page when scrolled
 		if(!isMobileWidth()) {
-			//console.log(navSticky);
-			// find height of nonmobile navbar and calculate adjusted padding
-			var navHeight = parseFloat($(".nav").height());
-			var adjustedContainerPadding = parseFloat(navHeight) + parseFloat(containerPadding);
-			var adjustedSidebarPadding = parseFloat(navHeight) + parseFloat(sidebarPadding);
+			if($(window).scrollTop() > bannerHeight && !navbarStuck()) {
+				// toggle on fixed position of navbar
+				$(".nav").css({"position": "fixed", "top": 0});
+				$(".nav").addClass("sticky");
 
-			// if the page is scrolled past the banner, the navbar becomes fixed
-			// and the padding to the container and sidebars are adjusted accordingly
-			console.log($(window).scrollTop());
-			console.log(bannerHeight);
-			if ($(window).scrollTop() == 0 ) {
-				console.log("at top");
-				$(".nav").css({"top": "auto"})
-				navSticky = false;
-			} else if ($(window).scrollTop() <= bannerHeight) {
-				console.log("star stick");
-				$(".nav").css({
-					position: "fixed", top: bannerHeight - $(window).scrollTop()
-				});
-				$(".container").css({"padding-top": adjustedContainerPadding});
-				$(".sidebar").css({"padding-top": adjustedSidebarPadding});
+			} else if ($(window).scrollTop() <= bannerHeight && navbarStuck()) {
+				//toggle off fixed position of navbar
+				$(".nav").css({"position": "static"});
+				$(".nav").removeClass("sticky");
 			}
-			else if ($(window).scrollTop() < bannerHeight && navSticky == false){
-				// if the page is scrolled to the banner again, padding and navbar
-				// are reverted to their initial positions
-				console.log("stick completely");
-				$(".nav").css({
-					"position": "initial", "top": 0
-				});
-				$(".container").css({"padding-top": containerPadding});
-				$(".sidebar").css({"padding-top": sidebarPadding});
-				
-				navSticky = true;
-			}
-		}	
-	})
+	} else if($(".nav").hasClass("sticky")){
+		$(".nav").css({"position": "static"});
+		$(".nav").removeClass("sticky");
+	}
+	adjustPaddingTop();
+}
+
+mobile();
+$(document).ready( function() {
+	// At < mobile width, changes to mobile class
+	$(window).resize(mobile);
+	$(window).scroll(navStick);
 })

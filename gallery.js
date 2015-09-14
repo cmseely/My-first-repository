@@ -3,7 +3,7 @@
 var image = document.getElementsByClassName("image");
 var i = image.length;
 while(i--) {
-	image[i].onclick = function() {showImage()};
+	image[i].onclick = function(event) {showImage(event)};
 }
 
 // centers image vertically in div
@@ -34,6 +34,7 @@ function getSource(e) {
 	var posx = 0;
 	var posy = 0;
 	if (!e) var e = window.event;
+
 	if (e.pageX || e.pageY) 	{
 		posx = e.pageX;
 		posy = e.pageY;
@@ -46,24 +47,16 @@ function getSource(e) {
 	}
 	// posx and posy contain the mouse position relative to the document
 	var elementClicked = document.elementFromPoint(posx,posy);
-	console.log(elementClicked);
 	var imgName = elementClicked.src;
 	console.log(imgName);
 	return imgName;
 }
 
 // When clicked, an enlarged version of the thumbnail takes up the screen
-function showImage() {
-/*
-	// Get source of element that was clicked
-	e = window.event || e;
-	var x = e.clientX, y = e.clientY;
-	
-	var elementClicked = document.elementFromPoint(x,y);
-	var imgName = elementClicked.src;*/
-	
+function showImage(event) {
+
 	// Set the hidden, large image as the thumbnail's image
-	var imgName = getSource();
+	var imgName = getSource(event);
 	document.getElementById('largeImg').src = imgName;
 	var img = $("#largeImg");
 	
@@ -73,6 +66,7 @@ function showImage() {
 	
 	// Set size of image depending on aspect ratio
 	if(parseInt(img.css("height")) > parseInt(img.css("width"))) {
+		console.log("tall");
 		// Image is taller than wide
 		img.css("width", "auto");
 		
@@ -88,20 +82,23 @@ function showImage() {
 			centerHorizontally(img);
 		}		
 	} else {
+		console.log("wide");
 		// Image is wider than tall
 		img.css("height", "auto");
 		
-		if(img.height() > bgHeight) {
+		//if(img.height() > bgHeight) {
+			console.log("TOO FCKN wide");
 			// height would be taller than background, so shrink to bg
-			img.css("height", bgHeight);
-			img.css("width", "auto");
+			img.css("height", "auto");
+			img.css("width", bgWidth);
 			centerHorizontally(img);
 			
-		} else {
+		//} else {
+			console.log("just right");
 			// Tall image will fit in bg
 			img.css("width", "100%");
 			centerVertically(img);
-		}
+		//}
 	}
 	
 	showLargeImagePanel();
