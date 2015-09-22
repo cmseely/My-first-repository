@@ -1,0 +1,113 @@
+html, body {
+	width: 100%;
+	min-width: 670px;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	background-color: #FFE0E0;
+	position: relative;
+}
+
+.nav {
+	background-color: #613F3F;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	overflow: hidden;
+	text-align: center;
+}
+
+.nav img {
+	width: 30px;
+	height: 30px;
+	vertical-align: middle;
+	border: none;
+}
+
+.nav ul {
+	list-style-type: none;
+	background-color: #613F3F;
+	text-align: center;
+	padding: 0;
+	margin: 0;
+}
+
+.nav.nonMobile a {
+	height: 50px;
+	text-decoration: none;
+	color: #fff;
+	display: block;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	transition: .3s background-color;
+}
+
+.nav.nonMobile a:hover {
+	background-color: #816565;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+}
+
+.nav.nonMobile a.active {
+	background-color: #fff;
+	color: #444;
+	cursor: default;
+}
+
+.nav.nonMobile li {
+	width: calc(670px / 6);
+	height: 50px;
+	line-height: 50px;
+	font-size: large;
+	display: inline-block;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.currentPage.nonMobile {
+	background-color: #FFEBEB;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+}
+
+.currentPage.nonMobile a {
+	display: block;
+	color: #613F3F;
+	font-weight: bold;
+}
+
+.currentPage.nonMobile a:hover {
+	background-color: #FFEBEB;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+}
+
+.nav.mobile li {
+	font-family: Copperplate Gothic Light;
+	font-size: smaller;
+	line-height: 40px;
+	height: 40px;
+	width: 100%;
+}
+
+.nav.mobile a.active {
+	background-color: #fff;
+	color: #444;
+	cursor: default;
+}
+
+.nav.mobile a {
+	text-decoration: none;
+	color: #fff;
+	display: block;
+	transition: .3s background-color;
+}
+
+.nav.mobile a:hover {
+	background-color: #816565;
+}
+
+#home {
+	display: block;
+}

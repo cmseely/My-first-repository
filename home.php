@@ -10,28 +10,12 @@
 				<div class="banner">
 						<p>CLEVER INTERNET TITLE IN A DOPE FONT</p>
 				</div>
-					<script src="mobile.js"></script>
-					<div class="nonMobile" id="navigation">					
-						<div class="nav">
-							<ul>
-								<li id="currentPage" class="currentPageNonMobile">
-									<a href="demo.html" id="homeNonMobile">
-										<img alt="Home" src="home_icon_alt.png" id="homeImage">
-									</a>
-									<a href="demo.html" id="homeMobile">Home</a></li
-								><li><a href="news.html">News</a></li
-								><li><a href="bio.html">Biography</a></li
-								><li><a href="pics.html">Pictures</a></li
-								><li><a href="contact.html">Contact</a></li
-								><li><a href="store.html">Store</a></li>
-							</ul>
-						</div>
-						
-					</div>
+				<?php include "navbar.php"; ?>
 					<div class="sidebar">
 					</div>
 					<div class="container">
 						<p>
+							HOME
 							Content CONTENT CONTENT lotttss and lots of CONTENT
 						  Content CONTENT CONTENT lotttss and lots of CONTENT
 							Content CONTENT CONTENT lotttss and lots of CONTENT
