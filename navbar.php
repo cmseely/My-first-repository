@@ -1,11 +1,11 @@
 <?php
 $menu = array(
-	'home' => array('text'=>'Home', 'url'=>'?p=home'),
-	'news' => array('text'=>'News', 'url'=>'?p=news'),
-	'bio' => array('text'=>'Biography', 'url'=>'?p=bio'),
-	'pics' => array('text'=>'Pictures', 'url'=>'pics.html'),
-	'contact' => array('text'=>'Contact', 'url'=>'?p=contact'),
-	'store' => array('text'=>'Store', 'url'=>'?p=store'),
+	'home' => array('text'=>'Home', 'url'=>'home.php'),
+	'news' => array('text'=>'News', 'url'=>'news.php'),
+	'bio' => array('text'=>'Biography', 'url'=>'bio.php'),
+	'pics' => array('text'=>'Pictures', 'url'=>'pics.php'),
+	'contact' => array('text'=>'Contact', 'url'=>'contact.php'),
+	'store' => array('text'=>'Store', 'url'=>'store.php'),
 );
 echo "<!DOCTYPE html>\n";
 echo "<link rel='stylesheet' type='text/css' href='navbar.css'>\n";
