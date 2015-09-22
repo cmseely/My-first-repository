@@ -1,6 +1,7 @@
-var bannerHeight = $(".banner").height();
-var containerPadding = parseFloat($(".container").css("padding-top"));
-var sidebarPadding = $(".sidebar").css("padding-top");
+
+	var bannerHeight = $(".banner").height();
+	var containerPadding = parseFloat($(".container").css("padding-top"));
+	var sidebarPadding = $(".sidebar").css("padding-top");
 
 // when the page is smaller than this width, it changes into
 // mobile version
@@ -17,17 +18,26 @@ function adjustPaddingTop() {
 	// if non-mobile with sticky navbar, padding-top is 25px + navbarHeight
 	var adjustedPadding;
 	
-	if(!isMobileWidth() && $(".nav").hasClass("sticky")) {
-		console.log($(".nav").height());
-		adjustedPadding = containerPadding + parseFloat($(".nav").height());
+	if(!isMobileWidth()) {
+		if($(window).scrollTop() > bannerHeight) {
+			adjustedPadding = 75;
+		} else {
+		//console.log(navHeight);
+		adjustedPadding = 25;
+		}
 	} else {
 		adjustedPadding = containerPadding;
 	}
-	$(".container").css({"padding-top": adjustedPadding})
+	console.log(adjustedPadding);
+	$(".container").css({"padding-top": adjustedPadding});
 }
 
 function pageIsMobile() {
 	return $("#navigation").hasClass("mobile");
+}
+
+function pageIsNonMobile() {
+	return $("#navigation").hasClass("nonMobile");
 }
 
 // If window size is small enough, make page mobile friendly
@@ -37,61 +47,44 @@ function mobile() {
 	console.log("check if mobile");
 	// switch between mobile and nonmobile navbar
 	if(isMobileWidth() && !pageIsMobile()) {
-		// hide home image link and show text link
-		$("#homeMobile").css({"display": "block"});
-		$("#homeNonMobile").css({"display": "none"});
-		
-		//change classes to mobile
-		$("#navigation").removeClass("nonMobile");
+		//change class to mobile
+		if(pageIsNonMobile) {
+			$("#navigation").removeClass("nonMobile");
+		}
 		$("#navigation").addClass("mobile");
-		$("#currentPage").removeClass("currentPageNonMobile");
-		$("#currentPage").addClass("currentPageMobile");
-		
 		// unstick navbar and adjust padding on container
 		navStick();
-		adjustPaddingTop();
+		// Hide home image link in navbar and show text
+		$("#homeImage").css({"display": "none"});
+		$("#homeText").css({"display": "inline-block"});
 		
-	} else if(!isMobileWidth() && pageIsMobile()) {
-		// show image link and hide text link
-		$("#homeNonMobile").css({"display": "block"});
-		$("#homeMobile").css({"display": "none"});
-		
-		// change classes to nonmobile
-		$("#navigation").removeClass("mobile");
+	} else if(!isMobileWidth() && !pageIsNonMobile()) {
+		// change class to nonMobile
+		if(pageIsMobile) {
+			$("#navigation").removeClass("mobile");
+		}
 		$("#navigation").addClass("nonMobile");
-		$("#currentPage").removeClass("currentPageMobile");
-		$("#currentPage").addClass("currentPageNonMobile");
+		// stick navbar and adjust padding on container
 		navStick();
+		// Show home image link in navbar and hide text
+		$("#homeImage").css({"display": "inline-block"});
+		$("#homeText").css({"display": "none"});
 	}
 }
 
-// returns true if page is scrolled to top
-function pageAtTop() {
-	return $(window).scrollTop() == 0;
-}
-
-// returns true when navbar is stuck to very top of page
-function navbarStuck() {
-	return $(".nav").hasClass("sticky");
-}
-
-// toggle fixed position instead of updating top
 function navStick() {
 		// if page is nonmobile, nav bar sticks to top of page when scrolled
 		if(!isMobileWidth()) {
-			if($(window).scrollTop() > bannerHeight && !navbarStuck()) {
+			if($(window).scrollTop() > bannerHeight) {
 				// toggle on fixed position of navbar
 				$(".nav").css({"position": "fixed", "top": 0});
-				$(".nav").addClass("sticky");
-
-			} else if ($(window).scrollTop() <= bannerHeight && navbarStuck()) {
+				
+			} else if ($(window).scrollTop() <= bannerHeight) {
 				//toggle off fixed position of navbar
 				$(".nav").css({"position": "static"});
-				$(".nav").removeClass("sticky");
 			}
-	} else if($(".nav").hasClass("sticky")){
+	} else {
 		$(".nav").css({"position": "static"});
-		$(".nav").removeClass("sticky");
 	}
 	adjustPaddingTop();
 }
