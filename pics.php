@@ -21,104 +21,90 @@
 			</div>
 				<div class="banner">
 						<p>CLEVER INTERNET TITLE IN A DOPE FONT</p>
-				</div>
-					<script src="mobile.js"></script>
-					<div class="nonMobile" id="navigation">					
-						<div class="nav">
-							<ul>
-								<li>
-									<a href="demo.html" id="homeNonMobile">
-										<img alt="Home" src="home_icon.png" id="homeImage">
-									</a>
-									<a href="demo.html" id="homeMobile">Home</a></li
-								><li><a href="news.html">News</a></li
-								><li><a href="bio.html">Biography</a></li
-								><li id="currentPage" class="currentPageNonMobile"><a href="pics.html">Pictures</a></li
-								><li><a href="contact.html">Contact</a></li
-								><li><a href="store.html">Store</a></li>
-							</ul>
-						</div>			
-					</div>
+				</div>	
+				<?php include "navbar.php"; ?>
 					<div class="sidebar">
 					</div>
 					<div class="container">
-						<div class="gallery">
-									<div class="thumbnail">
+						<table class="gallery">
+							<tr>
+								<td class="thumbnail">
 										<img src="1_large.jpeg" class="image">
-									</div>		
-									<div class="thumbnail">
+								</td>	
+								<td class="thumbnail">
 										<img src="whiteSquare_with_blackBorder.png"
 										alt="White Square with Black Border" class="image">
-									</div>
-									<div class="thumbnail">
+								</td>
+								<td class="thumbnail">
 										<img src="whiteSquare_with_blackBorder.png"
 										alt="White Square with Black Border" class="image">
-									</div>
-								</div>
-								<div class="gallery">
-									<div class="thumbnail">
+								</td>
+							</tr>
+							<tr>
+									<td class="thumbnail">
 										<img src="whiteSquare_with_blackBorder.png"
 										alt="White Square with Black Border"
 										class="image">
-									</div>
-									<div class="thumbnail">
+									</td>
+									<td class="thumbnail"">
 										<img src="Mr-Tall--56786.jpg"
 										alt="Tall Blue Face Person"
 										class="image">
-									</div>
-									<div class="thumbnail">
+									</td>
+									<td class="thumbnail">
 										<img src="whiteSquare_with_blackBorder.png"
 										alt="White Square with Black Border"
 										class="image">
-									</div>
-								</div>
-								<div class="gallery">
-									<div class="thumbnail">
+									</td>
+							</tr>
+							<tr>
+								<td class="thumbnail">
 										<img src="whiteSquare_with_blackBorder.png"
 										alt="White Square with Black Border"
 										class="image">
-									</div>
-									<div class="thumbnail">
+								</td>
+								<td class="thumbnail">
 										<img src="whiteSquare_with_blackBorder.png"
 										alt="White Square with Black Border"
 										class="image">
-									</div>
-									<div class="thumbnail">
+								</td>
+								<td class="thumbnail">
 										<img src="whiteSquare_with_blackBorder.png"
 										alt="White Square with Black Border"
 										class="image">
-									</div>
-								</div>
-								<div class="gallery">
-									<div class="thumbnail">						
+								</td>
+							</tr>
+							<tr>
+								<td class="thumbnail">				
 										<img src="whiteSquare_with_blackBorder.png"
 										alt="White Square with Black Border"
 										class="image">
-									</div>
-									<div class="thumbnail">
+								</td>
+								<td class="thumbnail">
 										<img src="whiteSquare_with_blackBorder.png"
 										alt="White Square with Black Border"
 										class="image">
-									</div>
-									<div class="thumbnail">
+								</td>
+								<td class="thumbnail">
 										<img src="whiteSquare_with_blackBorder.png"
 										alt="White Square with Black Border"
 										class="image">
-									</div>
-								</div>
-								<div class="gallery">
-									<div class="thumbnail">
+								</td>
+							</tr>
+							<tr>
+								<td class="thumbnail">
 										<img src="1_large.jpeg" class="image">
-									</div>		
-									<div class="thumbnail">
+								</td>
+								<td class="thumbnail">
 										<img src="whiteSquare_with_blackBorder.png"
 										alt="White Square with Black Border" class="image">
-									</div>
-									<div class="thumbnail">
+								</td>
+								<td class="thumbnail">
 										<img src="whiteSquare_with_blackBorder.png"
 										alt="White Square with Black Border" class="image">
-									</div>
-								</div>
+								</td>
+							<tr>
+					</table>
 					</div>
 					<div class="sidebar">
 					</div>
