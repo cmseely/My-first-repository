@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<meta charset="UTF-8" >
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Demos</title>
+		
+		<link rel="stylesheet" type="text/css" href="css/cmseely.css">
+		<link rel="stylesheet" type="text/css" href="css/demos.css">
+		
+		<link rel="stylesheet" type="text/css" title="defaultTheme" href="css/defaultTheme.css" class="theme" disabled>
+		<link rel="stylesheet" type="text/css" title="redTheme" href="css/redTheme.css" class="theme" disabled>
+		<link rel="stylesheet" type="text/css" title="purpleTheme" href="css/purpleTheme.css" class="theme" disabled>
+		<link rel="stylesheet" type="text/css" title="greenTheme" href="css/greenTheme.css" class="theme" disabled>
+		
+		<link href='https://fonts.googleapis.com/css?family=Raleway:400,700' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Orbitron:700' rel='stylesheet' type='text/css'>
+		
+	</head>
+	
+	<body>
+		<div class="wrapper">
+			<header class="banner">
+				<h1>Christina's Website Banner in a Dope Font</h1>
+			</header>
+			<nav>
+				<ul>
+					<li id='home'>
+						<a href='home.html'>
+							<img src="home_icon.png" id="homeImage">
+							<span id="homeWords">Home</span>
+						</a>
+					</li
+					><li>
+						<a href="resume.html">Resume</a>
+					</li
+					><li>
+						<a href="demos.html">Demos</a>
+					</li
+					><li>
+						<a href="designs.html">Designs</a>
+					</li>
+				</ul>
+			</nav>
+			<div id="main">
+				<article>
+				
+					<section class="demo" id="puzzleDemo">
+						<div class="captionBar">
+							<h2>Sliding Puzzle Demo</h2>
+							<div class="icon arrowUp"></div>
+						</div>
+						<div class="body">
+							<div class="box">
+								<div id="puzzle" class="content">
+									<div class="grid">
+										<div class="piece" data-pos="0,0" data-initPos="0,0">
+												<img src="/imgs/chick00.jpeg">
+										</div>
+										<div class="piece" data-pos="0,1" data-initPos="0,1">
+											<img src="imgs/chick01.jpeg">
+										</div>
+										<div class="piece" data-pos="0,2" data-initPos="0,2">
+											<img src="/imgs/chick02.jpeg">
+										</div>
+										<div class="piece" data-pos="1,0" data-initPos="1,0">
+											<img src="/imgs/chick10.jpeg">
+										</div>
+										<div class="piece" data-pos="1,1" data-initPos="1,1">
+											<img src="/imgs/chick11.jpeg">
+										</div>
+										<div class="piece" data-pos="1,2" data-initPos="1,2">
+											<img src="/imgs/chick12.jpeg">
+										</div>
+										<div class="piece" data-pos="2,0" data-initPos="2,0">
+											<img src="/imgs/chick20.jpeg">
+										</div>
+										<div class="piece" data-pos="2,1" data-initPos="2,1">
+											<img src="/imgs/chick21.jpeg">
+										</div>
+										<div class="piece" id="empty" data-pos="2,2" data-initPos="2,2"></div>-->
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+					
+					<section class="demo" id="calcDemo">
+						<div class="captionBar">
+							<h2>Calculator Demo</h2>
+							<div class="icon arrowUp"></div>
+						</div>
+						<div class="body">
+							<div class="box">
+							<div id="calc" class="calc content">
+								<ul id="calcDisplayBox">
+									<p id="calcDisplay"></p>
+								</ul>
+								<div id="keypad">
+									<ul>
+										<li id="clearBtn">
+											<button id="clear" class="operator">Clear</button>
+										</li
+										><li>
+											<button id="lParen" class="operator">(</button>
+										</li
+										><li>
+											<button id="rParen" class="operator">)</button>
+										</li>
+									</ul>
+									<ul>
+										<li>
+											<button id="7">7</button>
+										</li
+										><li>
+											<button id="8">8</button>
+										</li
+										><li>
+											<button id="9">9</button>
+										</li
+										><li>
+											<button id="divide" class="operator">/</button>
+										</li>
+									</ul>
+									<ul>
+										<li>
+											<button id="4">4</button>
+										</li
+										><li>
+											<button id="5">5</button>
+										</li
+										><li>
+											<button id="6">6</button>
+										</li
+										><li>
+											<button id="multiply" class="operator">x</button>
+										</li>
+									</ul>
+									<ul>
+										<li>
+											<button id="1">1</button>
+										</li
+										><li>
+											<button id="2">2</button>
+										</li
+										><li>
+											<button id="3">3</button>
+										</li
+										><li>
+											<button id="subtract" class="operator">-</button>
+										</li>
+									</ul>
+									<ul>
+										<li>
+											<button id="0">0</button>
+										</li
+										><li>
+											<button id="decimal">.</button>
+										</li
+										><li>
+											<button id="equals">=</button>
+										</li
+										><li>
+											<button id="add" class="operator">+</button>
+										</li>
+									</ul>
+								</div>
+							</div>
+							</div>
+						</div> 
+					</section>
+					
+					<section class="demo" id="themeDemo">
+						<div class="captionBar">
+							<h2>Theme Demo</h2>
+							<div class="icon arrowUp"></div>
+						</div>
+						<div class="body">
+							<form>
+								<input type="radio" name="theme" value="defaultTheme">Default Theme</br>
+								<input type="radio" name="theme" value="purpleTheme">Purple Theme</br>
+								<input type="radio" name="theme" value="redTheme">Red Theme</br>
+								<input type="radio" name="theme" value="greenTheme">Green Theme</br>
+							</form>
+							<p>
+								This form allows the user to set a theme for the website. Upon selection of a radio button,
+								the color scheme of the page will change. The user's selection is saved as a cookie and the page will
+								load with that color scheme until another one is chosen.
+							</p>
+						</div>
+					</section>
+					
+					<section class="demo" id="somethingDemo" ng-app="print">
+						<div class="captionBar">
+							<h2>AngularJS</h2>
+							<div class="icon arrowUp"></div>
+						</div>
+						<div class="body" ng-controller="printCtrl">
+							<p>
+								This is a simple example using AngularJS 1.5. The table below contains information on
+								many fictional characters. It may be searched using the input box, or categorically 
+								sorted by clicking on the desired header.
+							</p>
+							<input placeholder="Search" ng-model="searchKey">
+							<table>
+								<thead>
+									<tr>
+										<th><a ng-click="sortType = 'firstName'; sortReverse = !sortReverse">First Name</th>
+										<th><a ng-click="sortType = 'lastName'; sortReverse = !sortReverse">Last Name</th>
+										<th><a ng-click="sortType = 'sourceTitle'; sortReverse = !sortReverse">Source Title</th>
+										<th><a ng-click="sortType = 'sourceType'; sortReverse = !sortReverse">Source Type</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr ng-repeat="person in people | filter:searchKey | orderBy:sortType:sortReverse">
+										<td>
+											{{person.firstName}}
+										</td>
+										<td>
+											{{person.lastName}}
+										</td>
+										<td>
+											{{person.sourceTitle}}
+										</td>
+										<td>
+											{{person.sourceType}}
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</section>
+
+					<section class="demo" id="pigDemo">
+						<div class="captionBar">
+							<h2>Pig Demo</h2>
+							<div class="icon arrowUp"></div>
+						</div>
+						<div class="body">
+							<div class="pigButtons">
+								<button id="pigButton">Click me!</button>
+								<button id="pigVisibilityButton">Hello, piggy.</button>
+							</div>
+							<div id="pigPara">
+								<p>This little piggy can fly! Press the first button to start/stop flight. Press 
+								the second button to show/hide the pig.</p>
+							</div>
+						</div>
+					</section>
+					
+				</article>
+			</div>
+		</div>
+		<footer>
+			<h1>Christina is the Best -- Copyright 2016</h1>
+		</footer>
+		<script src="js/jquery-1.11.3.min.js"></script>
+		<script src="js/nav.js"></script>
+		<script src="js/pig.js"></script>
+		<script src="js/calc.js"></script>
+		<script src="js/slidingPuzzle.js"></script>
+		<script src="js/theme.js"></script>
+		<script src="js/demos.js"></script>
+		<script src="js/angular.min.js"></script>
+		
+	</body>
+</html>
